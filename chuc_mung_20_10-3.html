@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Chúc mừng ngày 20/10 💖</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700;800;900&family=Pacifico&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:Quicksand,Nunito,sans-serif;background:#0b0813;min-height:100vh;overflow-x:hidden;color:white}
+.font-pacifico{font-family:Pacifico,cursive}.font-cursive{font-family:"Dancing Script",cursive}
+.stars-bg{position:fixed;inset:0;background:radial-gradient(ellipse at bottom,#1b142a 0%,#090a0f 100%);z-index:0}
+#bgCanvas,#fgCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+#bgCanvas{z-index:1}#fgCanvas{z-index:30}
+.glass-card-ultra{background:rgba(255,255,255,.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:2px solid rgba(255,182,218,.4);box-shadow:0 0 50px #ec489955,0 0 100px #a855f733,inset 0 0 20px #ffffff33;border-radius:32px}
+@keyframes rainbowGlow{0%{border-color:#f472b6cc;box-shadow:0 0 30px #f472b699}33%{border-color:#c084fccc;box-shadow:0 0 35px #c084fcb3}66%{border-color:#fbbf24cc;box-shadow:0 0 35px #fbbf2499}100%{border-color:#f472b6cc;box-shadow:0 0 30px #f472b699}}
+.neon-border{animation:rainbowGlow 4s infinite ease-in-out}
+.neon-text-pink{text-shadow:0 0 10px #f472b6cc,0 0 20px #f472b699,0 0 30px #ec489966}
+@keyframes bounceSlow{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-15px) rotate(4deg)}}
+@keyframes floatRotate{0%,100%{transform:translateY(0) rotate(-3deg) scale(1)}50%{transform:translateY(-20px) rotate(5deg) scale(1.05)}}
+.float-anim{animation:bounceSlow 3.5s infinite ease-in-out}.float-anim-2{animation:floatRotate 4.2s infinite ease-in-out}
+#giftModal{transition:opacity .6s,transform .6s}#giftModal.opened{opacity:0;pointer-events:none;transform:scale(1.15)}
+@keyframes giftPulse{0%,100%{transform:scale(1) rotate(0)}25%,75%{transform:scale(1.08) rotate(-4deg)}}
+.gift-box-anim{animation:giftPulse 1.5s infinite ease-in-out}
+@keyframes spinDisc{to{transform:rotate(360deg)}}.spinning-cd{animation:spinDisc 6s linear infinite}.paused-cd{animation-play-state:paused}
+.btn-shiny{position:relative;overflow:hidden}.btn-shiny:after{content:"";position:absolute;top:-50%;left:-150%;width:70%;height:200%;background:linear-gradient(60deg,transparent,#ffffff66,transparent);transform:rotate(30deg);transition:left .8s}.btn-shiny:hover:after{left:150%}
+#toast{transition:opacity .25s,transform .25s}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-3 sm:p-6 relative">
+<div class="stars-bg"></div><canvas id="bgCanvas"></canvas><canvas id="fgCanvas"></canvas>
+<div class="fixed top-4 right-4 z-40 flex items-center gap-2">
+  <button id="musicToggle" class="bg-white/10 backdrop-blur-md hover:bg-white/20 p-2 rounded-full border border-pink-400/40 shadow-xl flex items-center gap-2" aria-label="Bật hoặc tắt nhạc">
+    <div id="cdDisc" class="w-9 h-9 rounded-full bg-gradient-to-tr from-pink-500 via-purple-600 to-yellow-400 flex items-center justify-center spinning-cd paused-cd"><div class="w-3 h-3 bg-black rounded-full border border-white"></div></div>
+    <span id="musicStatus" class="hidden sm:inline pr-2 text-xs font-bold text-pink-200">Nhạc: Tắt</span>
+  </button>
+  <button id="fireworksBtn" class="btn-shiny bg-gradient-to-r from-pink-500 via-purple-500 to-amber-400 hover:scale-105 active:scale-95 text-white px-4 py-2.5 rounded-full shadow-lg border border-pink-300/50 flex items-center gap-2 font-bold text-xs sm:text-sm"><i class="fa-solid fa-wand-magic-sparkles text-yellow-200"></i><span class="hidden sm:inline">Pháo hoa</span></button>
+</div>
+
+<div id="giftModal" class="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 bg-black/80 backdrop-blur-xl">
+ <div class="text-center max-w-md mx-auto">
+  <button id="giftEmoji" class="inline-block relative mb-6 cursor-pointer" aria-label="Mở hộp quà"><span class="text-8xl sm:text-9xl gift-box-anim block drop-shadow-[0_0_35px_rgba(244,114,182,0.8)]">🎁</span><span class="absolute -top-3 -right-3 bg-yellow-400 text-purple-950 font-black text-xs px-3 py-1 rounded-full shadow-lg uppercase">Chạm để mở!</span></button>
+  <h2 class="text-2xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-yellow-200 font-pacifico mb-3">Bạn có một món quà đặc biệt!</h2>
+  <p class="text-pink-200/90 text-sm sm:text-base font-semibold mb-8">Nhấn vào hộp quà lấp lánh để khám phá lời chúc ngày 20/10 🎉</p>
+  <button id="openGiftBtn" class="btn-shiny bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-extrabold px-8 py-4 rounded-full text-lg shadow-xl">✨ MỞ QUÀ NGAY ✨</button>
+ </div>
+</div>
+
+<main id="mainContent" class="relative z-10 w-full max-w-2xl my-auto opacity-0 scale-90 transition-all duration-1000">
+ <div class="absolute -top-12 -left-2 sm:-left-12 z-20 w-24 sm:w-36 float-anim pointer-events-none drop-shadow-xl" aria-hidden="true">
+  <svg viewBox="0 0 200 200" class="w-full h-full"><circle cx="100" cy="100" r="75" fill="#C7D2FE" opacity=".3"/><path d="M50 100 C50 40 150 40 150 100 C150 140 130 150 100 150 C60 150 50 120 50 100Z" fill="#818CF8"/><circle cx="100" cy="105" r="45" fill="#FEF3C7"/><path d="M60 80 Q100 110 140 80 Q120 60 100 60 Q80 60 60 80Z" fill="#6366F1"/><ellipse cx="82" cy="102" rx="7" ry="10" fill="#1E1B4B"/><ellipse cx="118" cy="102" rx="7" ry="10" fill="#1E1B4B"/><circle cx="80" cy="99" r="3" fill="#FFF"/><circle cx="116" cy="99" r="3" fill="#FFF"/><ellipse cx="73" cy="112" rx="6" ry="3" fill="#F472B6"/><ellipse cx="127" cy="112" rx="6" ry="3" fill="#F472B6"/><path d="M93 115 Q100 122 107 115" stroke="#4338CA" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M85 140 L115 140 L100 175Z" fill="#93C5FD"/><circle cx="92" cy="138" r="10" fill="#F472B6"/><circle cx="108" cy="138" r="10" fill="#C084FC"/><circle cx="100" cy="130" r="11" fill="#FDE047"/></svg>
+ </div>
+ <div class="absolute -bottom-7 -right-2 sm:-right-8 z-20 w-20 sm:w-28 float-anim-2 pointer-events-none"><div class="bg-white/10 backdrop-blur-md p-3 rounded-3xl border border-pink-300/40 shadow-xl text-center rotate-6"><span class="text-5xl block">👻</span><span class="text-[10px] font-black text-pink-300 uppercase block mt-1">Super Cute</span></div></div>
+ <div id="tiltCard" class="glass-card-ultra neon-border p-5 sm:p-10 text-center relative overflow-hidden" data-tilt data-tilt-max="7" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+  <div class="absolute top-2 left-2 text-pink-300/30 text-4xl pointer-events-none">🌸</div><div class="absolute bottom-2 right-2 text-purple-300/30 text-4xl pointer-events-none">🌺</div>
+  <div class="mb-4"><span class="bg-gradient-to-r from-pink-500/30 via-purple-500/30 to-pink-500/30 text-pink-200 border border-pink-400/50 text-xs sm:text-sm font-black px-5 py-2 rounded-full uppercase tracking-widest inline-block">✨ 20 / 10 / 2026 ✨</span></div>
+  <h1 class="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-rose-200 to-yellow-200 font-pacifico leading-relaxed neon-text-pink mb-4">Hôm nay là ngày 20/10</h1>
+  <div class="space-y-4 text-pink-100 text-sm sm:text-lg font-bold leading-relaxed my-6 text-left sm:text-center bg-black/30 backdrop-blur-md p-5 sm:p-7 rounded-2xl border border-pink-500/30 shadow-inner">
+   <p class="hover:text-yellow-200 transition-colors">Chúc tất cả các bạn có một ngày lễ trọn vẹn, đầy ý nghĩa với những kỷ niệm đẹp nhất. <span class="text-pink-400">💖</span></p>
+   <p class="hover:text-yellow-200 transition-colors">Chúc bạn luôn vui vẻ, gặp nhiều may mắn và ngày nào cũng cười thật tươi. <span class="text-yellow-300">🎁</span></p>
+   <p class="hover:text-yellow-200 transition-colors">Chúc bạn ngày càng xinh đẹp, giỏi giang; mọi niềm vui và hạnh phúc đều thuộc về bạn. <span class="text-rose-400">💕</span></p>
+   <p class="hover:text-yellow-200 transition-colors pt-2 border-t border-pink-500/30">Và đặc biệt là không còn buồn phiền, luôn an nhiên. Mong mỗi ngày trôi qua đều là một ngày hạnh phúc nhất... <span class="text-emerald-400">🌿</span></p>
+  </div>
+  <button id="bouquetBtn" class="my-5 relative inline-block group" aria-label="Bấm để bắn pháo hoa"><span class="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full bg-gradient-to-tr from-pink-500 via-purple-500 to-yellow-300 p-1 shadow-xl flex"><span class="w-full h-full rounded-full bg-slate-950 flex flex-col items-center justify-center"><span class="text-5xl sm:text-6xl group-hover:scale-125 transition-transform">💐</span><span class="text-[10px] font-black text-pink-300 mt-1 uppercase">Bông hoa đẹp nhất</span></span></span><span class="absolute -bottom-2 right-0 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-950 text-xs font-black px-3 py-1 rounded-full shadow-lg border border-yellow-200">⭐ VIP 100%</span></button>
+  <div class="mt-4 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-pink-500/20 p-4 sm:p-5 rounded-2xl border border-pink-400/40"><p class="font-extrabold text-yellow-200 text-sm sm:text-base leading-relaxed italic">“Tôi xin không tặng hoa vì không thể tặng hoa cho một bông hoa. Bạn thích gì gửi tui, tui gửi link cho chứ tôi không mua 🤣🤣”</p></div>
+  <div class="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
+   <button id="heartBtn" class="btn-shiny bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 hover:scale-105 active:scale-95 text-white font-extrabold px-6 py-3.5 rounded-full shadow-lg text-xs sm:text-sm flex items-center gap-2"><i class="fa-solid fa-heart text-rose-200"></i> Thả tim ngợp trời</button>
+   <button id="giftLinkBtn" class="btn-shiny bg-gradient-to-r from-amber-400 via-orange-500 to-pink-500 hover:scale-105 active:scale-95 text-slate-950 font-black px-6 py-3.5 rounded-full shadow-lg text-xs sm:text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Gửi link món quà 🎁</button>
+  </div>
+ </div>
+ <p class="text-center text-xs text-pink-300/70 mt-6 font-bold tracking-wide">💖 Chúc các bạn nữ luôn rạng rỡ & hạnh phúc! 💖</p>
+</main>
+
+<div id="giftLinkModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+ <div id="giftLinkModalCard" class="glass-card-ultra neon-border p-6 sm:p-8 max-w-md w-full text-center relative scale-95 opacity-0 transition-all duration-200">
+  <button id="closeGiftLinkBtn" class="absolute top-4 right-4 text-gray-300 hover:text-white text-xl" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+  <div class="text-5xl mb-3">🛍️</div><h3 class="text-2xl font-black text-yellow-300 mb-2 font-pacifico">Gửi link món quà bạn thích</h3>
+  <p class="text-xs sm:text-sm text-pink-200/90 mb-4 font-semibold">Dán link món quà ước nguyện vào đây nè! (Gửi xong tui xem... chứ tui hông mua đâu 🤪)</p>
+  <form id="giftForm" class="space-y-3 mb-5"><input type="url" id="giftUrlInput" placeholder="https://shopee.vn/mon-qua-xinh-dep..." class="w-full bg-black/50 border border-pink-400/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-yellow-400 placeholder-gray-400"><textarea id="giftNoteInput" placeholder="Lời nhắn kèm theo..." rows="2" class="w-full bg-black/50 border border-pink-400/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-yellow-400 placeholder-gray-400 resize-none"></textarea><button type="submit" class="btn-shiny w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-black py-3 rounded-xl shadow-lg text-sm uppercase tracking-wider">🚀 Tạo tin nhắn chia sẻ</button></form>
+  <p class="text-xs text-pink-200/70">Lưu ý: trang web không tự gửi dữ liệu cho người tạo; bạn có thể sao chép tin nhắn để gửi qua ứng dụng chat.</p>
+ </div>
+</div>
+<div id="toast" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-[60] max-w-[90vw] bg-slate-950/95 border border-pink-400/60 text-pink-100 px-5 py-3 rounded-2xl shadow-2xl text-sm font-bold text-center"><span id="toastMessage"></span></div>
+<audio id="bgMusic" loop preload="none"><source src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3" type="audio/mpeg"></audio>
+
+<script>
+(() => {
+ const $ = id => document.getElementById(id);
+ const bgCanvas=$('bgCanvas'), fgCanvas=$('fgCanvas');
+ const bgCtx=bgCanvas.getContext('2d'), fgCtx=fgCanvas.getContext('2d');
+ let width=0,height=0;
+ function resize(){width=bgCanvas.width=fgCanvas.width=window.innerWidth;height=bgCanvas.height=fgCanvas.height=window.innerHeight;}
+ window.addEventListener('resize',resize);resize();
+ const petals=[], symbols=['🌸','🌺','✨','💖','💐','🌹'];
+ class Petal{constructor(){this.reset(true)}reset(initial=false){this.x=Math.random()*width;this.y=initial?Math.random()*height:-30;this.size=Math.random()*14+10;this.speedY=Math.random()*1.4+.5;this.speedX=Math.random()-.5;this.symbol=symbols[Math.floor(Math.random()*symbols.length)];this.opacity=Math.random()*.6+.35;this.rotation=Math.random()*360;this.rotSpeed=(Math.random()-.5)*2}update(){this.y+=this.speedY;this.x+=Math.sin(this.y*.01)+this.speedX;this.rotation+=this.rotSpeed;if(this.y>height+30)this.reset()}draw(){bgCtx.save();bgCtx.translate(this.x,this.y);bgCtx.rotate(this.rotation*Math.PI/180);bgCtx.globalAlpha=this.opacity;bgCtx.font=`${this.size}px sans-serif`;bgCtx.textAlign='center';bgCtx.textBaseline='middle';bgCtx.fillText(this.symbol,0,0);bgCtx.restore()}}
+ for(let i=0;i<30;i++)petals.push(new Petal());
+ const fireworks=[],particles=[],trails=[];
+ class Firework{constructor(sx,sy,tx,ty){this.x=sx;this.y=sy;this.tx=tx;this.ty=ty;this.angle=Math.atan2(ty-sy,tx-sx);this.speed=7;this.hue=Math.random()*360}update(i){this.x+=Math.cos(this.angle)*this.speed;this.y+=Math.sin(this.angle)*this.speed;if(Math.hypot(this.tx-this.x,this.ty-this.y)<this.speed+3){burst(this.tx,this.ty,this.hue);fireworks.splice(i,1)}}draw(){bgCtx.beginPath();bgCtx.arc(this.x,this.y,2.5,0,Math.PI*2);bgCtx.fillStyle=`hsl(${this.hue},100%,65%)`;bgCtx.fill()}}
+ class Particle{constructor(x,y,hue){this.x=x;this.y=y;this.hue=hue;this.angle=Math.random()*Math.PI*2;this.speed=Math.random()*5+1;this.alpha=1;this.decay=Math.random()*.02+.012;this.gravity=.08}update(i){this.speed*=.965;this.x+=Math.cos(this.angle)*this.speed;this.y+=Math.sin(this.angle)*this.speed+this.gravity;this.alpha-=this.decay;if(this.alpha<=0)particles.splice(i,1)}draw(){bgCtx.save();bgCtx.globalAlpha=this.alpha;bgCtx.beginPath();bgCtx.arc(this.x,this.y,2,0,Math.PI*2);bgCtx.fillStyle=`hsl(${this.hue},100%,65%)`;bgCtx.shadowBlur=8;bgCtx.shadowColor=bgCtx.fillStyle;bgCtx.fill();bgCtx.restore()}}
+ function burst(x,y,hue){for(let i=0;i<38;i++)particles.push(new Particle(x,y,hue))}
+ function launch(){fireworks.push(new Firework(width*(.2+Math.random()*.6),height,Math.random()*width,Math.random()*height*.5))}
+ function mega(){if(typeof confetti==='function'){confetti({particleCount:90,spread:80,origin:{x:0,y:.65}});confetti({particleCount:90,angle:120,spread:80,origin:{x:1,y:.65}})}for(let i=0;i<8;i++)setTimeout(launch,i*130)}
+ function addTrail(x,y){trails.push({x,y,size:Math.random()*10+8,alpha:1,color:`hsl(${Math.random()*60+320},100%,70%)`});if(trails.length>100)trails.shift()}
+ window.addEventListener('mousemove',e=>addTrail(e.clientX,e.clientY));
+ window.addEventListener('touchmove',e=>{if(e.touches[0])addTrail(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+ function animate(){bgCtx.clearRect(0,0,width,height);petals.forEach(p=>{p.update();p.draw()});fireworks.slice().forEach(f=>{f.update(fireworks.indexOf(f));f.draw()});particles.slice().forEach(p=>{p.update(particles.indexOf(p));p.draw()});if(Math.random()<.018)launch();fgCtx.clearRect(0,0,width,height);for(let i=trails.length-1;i>=0;i--){const t=trails[i];t.alpha-=.035;t.size*=.96;if(t.alpha<=0){trails.splice(i,1);continue}fgCtx.save();fgCtx.globalAlpha=t.alpha;fgCtx.font=`${t.size}px sans-serif`;fgCtx.fillStyle=t.color;fgCtx.fillText('💖',t.x,t.y);fgCtx.restore()}requestAnimationFrame(animate)}
+ animate();
+ let isMusicPlaying=false;const music=$('bgMusic');
+ function toast(msg){$('toastMessage').textContent=msg;$('toast').classList.remove('hidden');clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').classList.add('hidden'),4200)}
+ async function toggleMusic(){if(isMusicPlaying){music.pause();$('cdDisc').classList.add('paused-cd');$('musicStatus').textContent='Nhạc: Tắt';isMusicPlaying=false;return}try{await music.play();$('cdDisc').classList.remove('paused-cd');$('musicStatus').textContent='Nhạc: Bật 🎵';isMusicPlaying=true}catch(e){toast('Không phát được nhạc lúc này. Bạn thử chạm nút nhạc lại nhé! 🎵')}}
+ function openGift(){if($('giftModal').classList.contains('opened'))return;$('giftModal').classList.add('opened');toggleMusic();if(typeof confetti==='function')confetti({particleCount:130,spread:100,origin:{y:.6}});setTimeout(mega,300);setTimeout(()=>{$('giftModal').style.display='none';$('mainContent').classList.remove('opacity-0','scale-90');$('mainContent').classList.add('opacity-100','scale-100')},650)}
+ function openModal(){const modal=$('giftLinkModal'),card=$('giftLinkModalCard');modal.classList.remove('hidden');modal.classList.add('flex');requestAnimationFrame(()=>{card.classList.remove('scale-95','opacity-0');card.classList.add('scale-100','opacity-100')})}
+ function closeModal(){const modal=$('giftLinkModal'),card=$('giftLinkModalCard');card.classList.remove('scale-100','opacity-100');card.classList.add('scale-95','opacity-0');setTimeout(()=>{modal.classList.add('hidden');modal.classList.remove('flex')},220)}
+ $('giftEmoji').addEventListener('click',openGift);$('openGiftBtn').addEventListener('click',openGift);$('musicToggle').addEventListener('click',toggleMusic);
+ $('fireworksBtn').addEventListener('click',mega);$('heartBtn').addEventListener('click',mega);$('bouquetBtn').addEventListener('click',mega);$('giftLinkBtn').addEventListener('click',openModal);$('closeGiftLinkBtn').addEventListener('click',closeModal);
+ $('giftLinkModal').addEventListener('click',e=>{if(e.target===$('giftLinkModal'))closeModal()});
+ $('giftForm').addEventListener('submit',e=>{e.preventDefault();const url=$('giftUrlInput').value.trim(),note=$('giftNoteInput').value.trim();if(!url){toast('Nhập link món quà trước nha bạn tui ơi 🤪');return}let message='Món quà mình thích nè 🎁 '+url+(note?'\nLời nhắn: '+note:'');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(message).then(()=>toast('Đã sao chép tin nhắn! Hãy gửi cho bạn bè nhé 💖')).catch(()=>{window.prompt('Sao chép tin nhắn này:',message)})}else{window.prompt('Sao chép tin nhắn này:',message)}closeModal();mega()});
+ if(typeof VanillaTilt!=='undefined'&&window.matchMedia('(pointer:fine)').matches)VanillaTilt.init(document.querySelectorAll('#tiltCard'),{max:7,speed:400,glare:true,'max-glare':.2});
+})();
+</script>
+</body>
+</html>
