@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chúc Mừng 20/10</title>
+    <style>
+      :root {
+        --bg1: #190b2d;
+        --bg2: #2a1353;
+        --card: rgba(255, 255, 255, 0.08);
+        --card-strong: rgba(255, 255, 255, 0.14);
+        --text: #fff7fb;
+        --muted: #f4d4ea;
+        --pink: #ff5f9e;
+        --rose: #ff8fa3;
+        --gold: #ffd166;
+        --purple: #8f7cf7;
+        --green: #6ae7b2;
+        --shadow: rgba(0, 0, 0, 0.28);
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: radial-gradient(circle at top, #2a1353 0%, #110a1d 45%, #090611 100%);
+        color: var(--text);
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .sky {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 20% 30%, rgba(255, 107, 180, 0.15), transparent 20%),
+          radial-gradient(circle at 80% 20%, rgba(255, 209, 102, 0.14), transparent 20%),
+          radial-gradient(circle at 50% 70%, rgba(143, 124, 247, 0.12), transparent 24%);
+      }
+
+      .sparkle {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,0.8), transparent),
+          radial-gradient(2px 2px at 30% 60%, rgba(255,255,255,0.7), transparent),
+          radial-gradient(2px 2px at 70% 25%, rgba(255,255,255,0.8), transparent),
+          radial-gradient(2px 2px at 85% 65%, rgba(255,255,255,0.7), transparent),
+          radial-gradient(2px 2px at 50% 80%, rgba(255,255,255,0.8), transparent);
+        animation: twinkle 4s ease-in-out infinite alternate;
+      }
+
+      @keyframes twinkle {
+        0% { opacity: 0.4; transform: scale(1); }
+        100% { opacity: 1; transform: scale(1.08); }
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+        width: min(1100px, calc(100% - 32px));
+        margin: 32px auto 80px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 12px 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .music-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .music-icon { font-size: 1.1rem; }
+
+      .title-block {
+        text-align: center;
+        padding: 28px 20px 10px;
+      }
+
+      .title-block h1 {
+        margin: 0;
+        font-size: clamp(2rem, 3vw, 3.2rem);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-shadow: 0 0 20px rgba(255, 95, 158, 0.4);
+      }
+
+      .subtitle {
+        margin-top: 12px;
+        font-size: clamp(1rem, 1.8vw, 1.3rem);
+        color: #f9dce9;
+        letter-spacing: 0.08em;
+      }
+
+      .card {
+        background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 28px;
+        box-shadow: 0 24px 80px var(--shadow);
+        backdrop-filter: blur(8px);
+      }
+
+      .gift-wrap {
+        position: relative;
+        margin: 28px auto 16px;
+        max-width: 700px;
+        padding: 28px 20px 24px;
+        text-align: center;
+      }
+
+      .gift-box {
+        position: relative;
+        width: min(420px, 78vw);
+        height: 180px;
+        margin: 20px auto 0;
+        border-radius: 24px;
+        background: linear-gradient(135deg, #ffb5d1, #ff7bb2 45%, #ff4d8d 100%);
+        box-shadow: 0 20px 35px rgba(255, 92, 150, 0.4), inset 0 0 0 3px rgba(255,255,255,0.3);
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .gift-box:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 28px 40px rgba(255, 92, 150, 0.48), inset 0 0 0 3px rgba(255,255,255,0.4);
+      }
+
+      .gift-box::before,
+      .gift-box::after {
+        content: "";
+        position: absolute;
+        background: rgba(255,255,255,0.38);
+      }
+
+      .gift-box::before {
+        left: 50%;
+        top: 0;
+        width: 18px;
+        height: 100%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+      }
+
+      .gift-box::after {
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 18px;
+        transform: translateY(-50%);
+        border-radius: 10px;
+      }
+
+      .box-lid {
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 100%;
+        height: 44px;
+        border-radius: 24px 24px 10px 10px;
+        background: linear-gradient(135deg, #ffd4e3, #ff7bb2);
+        box-shadow: inset 0 -4px 0 rgba(255,255,255,0.2);
+      }
+
+      .gift-button {
+        display: inline-block;
+        margin-top: 22px;
+        padding: 14px 26px;
+        border: none;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #f9d976, #ffb703, #ffd166);
+        color: #4f2a16;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: 0 8px 22px rgba(255, 191, 0, 0.45);
+        cursor: pointer;
+      }
+
+      .gift-message {
+        margin-top: 26px;
+        font-size: clamp(1.1rem, 2vw, 1.7rem);
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      .gift-note {
+        margin-top: 10px;
+        font-size: clamp(1rem, 1.8vw, 1.2rem);
+        color: var(--muted);
+      }
+
+      .hidden-box {
+        opacity: 0;
+        transform: translateY(24px);
+        visibility: hidden;
+        transition: all 0.45s ease;
+        margin-top: 26px;
+      }
+
+      .hidden-box.open {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .gift-contents {
+        margin: 0 auto;
+        max-width: 760px;
+        padding: 26px 20px 28px;
+      }
+
+      .date-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.7rem 1.2rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255,255,255,0.14);
+        color: #ffe7a7;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .hero-text {
+        margin-top: 22px;
+        font-size: clamp(2rem, 3.4vw, 3.2rem);
+        line-height: 1.2;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+      }
+
+      .message-box {
+        margin-top: 18px;
+        padding: 18px 20px;
+        background: rgba(255,255,255,0.06);
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .message-box p {
+        margin: 14px 0;
+        color: #fff6fb;
+        font-size: clamp(1.05rem, 2vw, 1.2rem);
+        line-height: 1.8;
+      }
+
+      .message-box .quote {
+        color: #ffd7ee;
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      .cta-row {
+        display: flex;
+        justify-content: center;
+        margin-top: 22px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .action-btn,
+      .ghost-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 15px 24px;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .action-btn {
+        background: linear-gradient(135deg, #ff7eb6, #ff4d8d 45%, #ef476f);
+        color: white;
+        box-shadow: 0 12px 28px rgba(239, 71, 111, 0.42);
+      }
+
+      .ghost-btn {
+        background: rgba(255,255,255,0.07);
+        color: var(--text);
+        border: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .action-btn:hover,
+      .ghost-btn:hover,
+      .gift-button:hover {
+        transform: translateY(-2px);
+      }
+
+      .form-card {
+        margin-top: 28px;
+        padding: 24px 18px 12px;
+      }
+
+      .form-header {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+
+      .form-header h3 {
+        margin: 0 0 8px;
+        font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+      }
+
+      .form-header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .link-form {
+        display: grid;
+        gap: 16px;
+      }
+
+      .input-wrap {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .link-form input {
+        width: 100%;
+        padding: 16px 18px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
+        color: var(--text);
+        font-size: 1rem;
+        outline: none;
+      }
+
+      .link-form input::placeholder {
+        color: rgba(255,255,255,0.55);
+      }
+
+      .link-form button {
+        border: none;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #8f7cf7, #5f81ff);
+        color: white;
+        padding: 16px 22px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        cursor: pointer;
+      }
+
+      .toast {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        background: rgba(17, 19, 32, 0.9);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: white;
+        padding: 14px 18px;
+        border-radius: 12px;
+        box-shadow: 0 18px 28px rgba(0,0,0,0.25);
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.4s ease;
+        z-index: 20;
+      }
+
+      .toast.hidden {
+        opacity: 0;
+        transform: translateY(16px);
+        visibility: hidden;
+      }
+
+      .confetti {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      .piece {
+        position: absolute;
+        top: -12px;
+        width: 12px;
+        height: 22px;
+        border-radius: 4px;
+        opacity: 0.9;
+        animation: fall 2.8s linear forwards;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(110vh) rotate(540deg);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page { width: min(100% - 18px, 1100px); }
+        .gift-wrap { padding: 22px 14px 14px; }
+        .gift-box { height: 160px; }
+        .input-wrap { grid-template-columns: 1fr; }
+        .link-form button { width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sky"></div>
+    <div class="sparkle"></div>
+    <div class="confetti" id="confettiLayer"></div>
+
+    <main class="page">
+      <div class="topbar">
+        <div class="music-status"><span class="music-icon">🔇</span> <span>Nhạc: Tắt</span></div>
+      </div>
+
+      <section class="title-block">
+        <h1>Pháo Hoa Trời</h1>
+      </section>
+
+      <section class="card gift-wrap">
+        <div class="gift-icon">🎁</div>
+        <div class="gift-message">Bạn Có 1 Món Quà Đặc Biệt!</div>
+        <div class="gift-note">Nhấn vào Hộp Quà lấp lánh để khám phá bí mật chúc mừng ngày 20/10 🎉</div>
+        <div class="gift-box" id="giftBox" aria-label="Mở quà">
+          <div class="box-lid"></div>
+        </div>
+        <button class="gift-button" id="openGift">✨ MỞ QUÀ NGAY ✨</button>
+      </section>
+
+      <section class="card hidden-box" id="giftReveal">
+        <div class="gift-contents">
+          <div class="date-badge">✨ 20 / 10 / 2026 ✨</div>
+
+          <div class="hero-text">Hôm nay là ngày 20/10</div>
+
+          <div class="message-box">
+            <p>Chúc tất cả bạn một ngày lễ trọn vẹn, đầy ý nghĩa với những kỷ niệm đẹp nhất. 💖</p>
+            <p>Chúc bạn luôn vui vẻ, gặp nhiều may mắn, chúc bạn mỗi ngày đều cười tươi. 🎁</p>
+            <p>Chúc bạn ngày càng xinh đẹp, giỏi giang, chúc bạn cuộc sống đong đầy bao nhiêu hạnh phúc đều là của bạn 💕</p>
+            <p class="quote">“Tôi xin ko tặng hoa vì ko thể tặng hoa cho 1 bông hoa, bn thích gì gửi tui, tui gửi link cho chứ tôi ko mua 🤣🤣”</p>
+          </div>
+
+          <div class="cta-row">
+            <button class="action-btn" id="sendLinkBtn">Gửi Link Món Quà Bạn Thích 🎁</button>
+            <button class="ghost-btn" id="replayBtn">Thả Tim Ngợp Trời</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card form-card" id="linkCard">
+        <div class="form-header">
+          <h3>🛍️ Gửi Link Món Quà Bạn Thích</h3>
+          <p>Dán link Shopee, Lazada, Tiki hoặc món quà ước nguyện vào đây nè! (Gửi xong tui xem... chứ tui hông mua đâu 🤪)</p>
+        </div>
+
+        <form class="link-form" id="linkForm">
+          <div class="input-wrap">
+            <input type="url" id="giftLink" placeholder="https://..." aria-label="Link món quà" required />
+            <button type="submit">🚀 GỬI LINK NGAY & LUÔN</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="toast hidden" id="toast">💖 Chúc Các Bạn Nữ Luôn Rạng Rỡ &amp; Hạnh Phúc! 💖</div>
+    </main>
+
+    <script>
+      const giftBox = document.getElementById('giftBox');
+      const openGiftBtn = document.getElementById('openGift');
+      const giftReveal = document.getElementById('giftReveal');
+      const toast = document.getElementById('toast');
+      const replayBtn = document.getElementById('replayBtn');
+      const sendLinkBtn = document.getElementById('sendLinkBtn');
+      const linkCard = document.getElementById('linkCard');
+      const linkForm = document.getElementById('linkForm');
+      const giftLink = document.getElementById('giftLink');
+      const confettiLayer = document.getElementById('confettiLayer');
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.remove('hidden');
+        setTimeout(() => toast.classList.add('hidden'), 4000);
+      }
+
+      function launchConfetti() {
+        confettiLayer.innerHTML = '';
+        const colors = ['#ff5ca8', '#ffd166', '#6ae7b2', '#8f7cf7', '#ff7a59', '#ffffff'];
+
+        for (let i = 0; i < 80; i++) {
+          const piece = document.createElement('span');
+          piece.className = 'piece';
+          piece.style.left = (Math.random() * 100) + 'vw';
+          piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+          piece.style.animationDelay = (Math.random() * 0.4) + 's';
+          piece.style.transform = 'scale(' + (0.7 + Math.random() * 1.2) + ')';
+          confettiLayer.appendChild(piece);
+        }
+      }
+
+      function openGift() {
+        giftReveal.classList.add('open');
+        giftBox.style.transform = 'scale(0.96)';
+        giftBox.style.opacity = '0.9';
+        launchConfetti();
+        showToast('💖 Chúc Các Bạn Nữ Luôn Rạng Rỡ & Hạnh Phúc! 💖');
+        setTimeout(() => {
+          giftBox.style.transform = 'scale(1)';
+          giftBox.style.opacity = '1';
+        }, 300);
+      }
+
+      giftBox.addEventListener('click', openGift);
+      openGiftBtn.addEventListener('click', openGift);
+
+      replayBtn.addEventListener('click', () => {
+        launchConfetti();
+        showToast('🎉 Thả tim ngập trời!');
+      });
+
+      sendLinkBtn.addEventListener('click', () => {
+        linkCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        giftLink.focus();
+      });
+
+      linkForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const value = giftLink.value.trim();
+        if (!value) {
+          showToast('Vui lòng dán link trước khi gửi nhé!');
+          return;
+        }
+        showToast('💌 Link của bạn đã được ghi nhận!');
+        linkForm.reset();
+      });
+
+      window.onload = function () {
+        showToast('✨ Chúc mừng 20/10!');
+      };
+    </script>
+  </body>
+</html>
